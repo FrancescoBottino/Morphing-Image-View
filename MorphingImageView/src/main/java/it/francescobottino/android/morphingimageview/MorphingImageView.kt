@@ -9,9 +9,9 @@ class MorphingImageView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : AppCompatImageView(context, attrs, defStyleAttr) {
 
-    private var forward: AnimatedVectorDrawableCompat? = null
-    private var backward: AnimatedVectorDrawableCompat? = null
-    private var direction: Boolean = true
+    var forward: AnimatedVectorDrawableCompat? = null
+    var backward: AnimatedVectorDrawableCompat? = null
+    var isForward: Boolean = true
 
     init {
         context.theme.obtainStyledAttributes(
@@ -27,7 +27,7 @@ class MorphingImageView @JvmOverloads constructor(
             }
         }
 
-        direction = true
+        isForward = true
         if(isInEditMode) {
             setImageDrawable(backward)
         } else {
@@ -36,22 +36,22 @@ class MorphingImageView @JvmOverloads constructor(
     }
 
     fun morphForward() {
-        if (!direction) {
+        if (!isForward) {
             morph()
         }
     }
 
     fun morphBackward() {
-        if (direction) {
+        if (isForward) {
             morph()
         }
     }
 
     fun morph() {
-        val drawable = if (direction) forward else backward
+        val drawable = if (isForward) forward else backward
 
         setImageDrawable(drawable)
         drawable?.start()
-        direction = !direction
+        isForward = !isForward
     }
 }
