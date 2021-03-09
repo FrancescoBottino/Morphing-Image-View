@@ -1,0 +1,3 @@
+include ':MorphingImageView'
+include ':app'
+rootProject.name = "Morphing Image View"
