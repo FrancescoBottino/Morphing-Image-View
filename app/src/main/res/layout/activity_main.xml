@@ -12,8 +12,6 @@
         android:id="@+id/icon"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        app:backwardAnimation="@drawable/adv_anim_pause_to_play"
-        app:forwardAnimation="@drawable/adv_anim_play_to_pause"
         app:tint="@color/purple_500" />
 
     <Button

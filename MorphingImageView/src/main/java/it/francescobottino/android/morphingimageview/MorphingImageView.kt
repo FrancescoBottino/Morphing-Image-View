@@ -20,8 +20,18 @@ class MorphingImageView @JvmOverloads constructor(
             0, 0).apply {
 
             try {
-                forward = AnimatedVectorDrawableCompat.create(context, getResourceId(R.styleable.MorphingImageView_forwardAnimation, 0))
-                backward = AnimatedVectorDrawableCompat.create(context, getResourceId(R.styleable.MorphingImageView_backwardAnimation, 0))
+                forward = AnimatedVectorDrawableCompat.create(context,
+                    getResourceId(
+                        R.styleable.MorphingImageView_forwardAnimation,
+                        R.drawable.adv_anim_play_to_pause
+                    )
+                )
+                backward = AnimatedVectorDrawableCompat.create(context,
+                    getResourceId(
+                        R.styleable.MorphingImageView_backwardAnimation,
+                        R.drawable.adv_anim_pause_to_play
+                    )
+                )
             } finally {
                 recycle()
             }
